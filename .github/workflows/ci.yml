@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        # macOS covers dmg, iso and Apple Archive; Linux covers the portable code.
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Install 7-Zip (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends 7zip zstd lz4 brotli
+
+      - name: Install 7-Zip (macOS)
+        if: runner.os == 'macOS'
+        run: brew install sevenzip zstd lz4 brotli
+
+      - name: gofmt
+        run: test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
+
+      - run: go vet ./...
+
+      - run: go test -race ./...
+
+      - name: Build
+        run: CGO_ENABLED=0 go build -trimpath -o pakket .
+
+      - name: Smoke test
+        run: |
+          mkdir -p demo/sub && echo hello > demo/a.txt && echo world > demo/sub/b.txt
+          ./pakket compress -q -f 7z -p secret demo
+          ./pakket test -p secret demo.7z
+          ./pakket extract -q -p secret -d out demo.7z
+          cmp demo/sub/b.txt out/demo/sub/b.txt
+          ./pakket formats

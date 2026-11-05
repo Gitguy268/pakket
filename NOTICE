@@ -1,0 +1,52 @@
+pakket
+Copyright (c) 2026 Lucas Van De Weerd. Licensed under the MIT License (see LICENSE).
+
+The MIT grant covers pakket's own code only. pakket is built with, and at run
+time calls, the third-party software below, each under its own licence. pakket
+is not affiliated with or endorsed by any of these projects, nor by Keka.
+
+Compiled into the pakket binary (Go modules, see go.mod for exact versions)
+- age and hpke, Copyright 2019 The age Authors and Copyright 2009 The Go
+  Authors. BSD 3-Clause License. https://github.com/FiloSottile/age
+- brotli (andybalholm/brotli), Copyright (c) 2009, 2010, 2013-2016 by the
+  Brotli Authors. MIT License.
+- compress (klauspost/compress), Copyright (c) 2012 The Go Authors and
+  Copyright (c) 2019 Klaus Post. BSD 3-Clause License (some parts Apache-2.0
+  and MIT, see its LICENSE).
+- compress (dsnet/compress), Copyright (c) 2015, Joe Tsai and The Go Authors.
+  BSD 3-Clause License.
+- lz4 (pierrec/lz4), Copyright (c) 2015, Pierre Curto. BSD 3-Clause License.
+- lzip-go, Copyright 2024 Shun Sakai. Apache-2.0 OR MIT; used under MIT.
+- xz (ulikunitz/xz), Copyright (c) 2014-2022 Ulrich Kunitz. BSD 3-Clause License.
+- Bubble Tea, Bubbles, Lip Gloss, colorprofile, x/ansi, x/cellbuf and x/term,
+  Copyright (c) Charmbracelet, Inc. MIT License. https://github.com/charmbracelet
+- clipboard, Copyright (c) 2013 Ato Araki. BSD 3-Clause License.
+- go-osc52, Copyright (c) 2022 Ayman Bagabas. MIT License.
+- displaywidth, stringish and uax29, Copyright (c) 2020-2025 Matt Sherman. MIT License.
+- go-colorful, Copyright (c) 2013 Lucas Beyer. MIT License.
+- go-isatty and go-runewidth, Copyright (c) Yasuhiro Matsumoto. MIT License.
+- ansi, cancelreader and termenv, Copyright (c) Christian Muehlhaeuser and
+  Erik Geiser. MIT License.
+- uniseg, Copyright (c) 2019 Oliver Kuederle. MIT License.
+- terminfo (xo/terminfo), Copyright (c) 2016 Anmol Sethi. MIT License.
+- golang.org/x/crypto, x/sys, x/term and x/text, Copyright 2009 The Go
+  Authors. BSD 3-Clause License.
+
+Separate programs pakket runs, when they are installed (not bundled)
+- 7-Zip (7zz), Copyright (C) Igor Pavlov. GNU LGPL 2.1 with the unRAR
+  restriction for RAR decompression, plus BSD parts. https://www.7-zip.org
+  pakket starts it as a separate process; no 7-Zip code is in pakket.
+- hdiutil, aa (Apple Archive), xip, ditto, trash, security and osascript:
+  part of macOS, Copyright Apple Inc.
+- unar (The Unarchiver), LGPL 2.1. lrzip, GPL 2. Both optional, run as
+  separate processes.
+
+Ideas, no code
+- Keka by aONe (Jorge Garcia), https://www.keka.io and
+  https://github.com/aonez/Keka. The repository states no licence. pakket
+  copies none of its code or artwork; it follows Keka's feature set as
+  documented on keka.io and in the Keka wiki: the create and extract format
+  lists, solid 7z, exclude Mac resource forks, split volumes, archive items
+  separately, delete after compression, encrypted 7z file names, optional
+  AES-256 zip, and the export-password and MD5 sidecar files. "Keka" is
+  used here only to describe what pakket is similar to.

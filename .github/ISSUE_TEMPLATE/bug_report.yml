@@ -1,0 +1,54 @@
+name: Bug report
+description: Something in pakket does not work.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: What went wrong. If an archive failed, say which format and how it was made (which app or command).
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: To reproduce
+      description: The command you ran, or the keys you pressed in the TUI.
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Where
+      options:
+        - TUI (pakket)
+        - compress
+        - extract
+        - list / test
+        - encrypt / decrypt
+        - other
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      placeholder: "pakket version, 7zz | head -2, macOS or Linux version"
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: The full error message. Please do not attach archives that hold private files or passwords.

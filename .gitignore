@@ -1,0 +1,11 @@
+/pakket
+/dist/
+*.test
+*.out
+.DS_Store
+.env
+.env.*
+!.env.example
+.vercel/
+node_modules/
+_landing/

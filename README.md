@@ -22,9 +22,10 @@ A file archiver for the terminal: compress, extract, encrypt, list and test arch
 <!-- run-steps:start -->
 ## Run it locally, step by step
 
-1. **Install it with [Homebrew](https://brew.sh)** (macOS or Linux). This also installs 7-Zip:
+1. **Install it with [Homebrew](https://brew.sh)** (macOS or Linux). This also installs 7-Zip. Homebrew asks you to trust a tap once:
 
    ```sh
+   brew trust gitguy268/tap
    brew install gitguy268/tap/pakket
    ```
 
@@ -71,7 +72,7 @@ A file archiver for the terminal: compress, extract, encrypt, list and test arch
 
 | How | Command |
 |---|---|
-| Homebrew (macOS, Linux) | `brew install gitguy268/tap/pakket` |
+| Homebrew (macOS, Linux) | `brew trust gitguy268/tap && brew install gitguy268/tap/pakket` |
 | Go | `go install github.com/Gitguy268/pakket@latest`, then `brew install sevenzip` or `apt install 7zip` |
 | From source | see [Run it locally](#run-it-locally-step-by-step) |
 

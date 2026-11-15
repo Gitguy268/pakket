@@ -19,6 +19,8 @@ A file archiver for the terminal: compress, extract, encrypt, list and test arch
 **Project page:** [gitguy268.github.io/pakket](https://gitguy268.github.io/pakket/)
 <!-- /live-links -->
 
+**Prefer a browser?** [web-pak](https://github.com/Gitguy268/web-pak) is pakket as a web app, with previews, editing and converting: [gitguy268.github.io/web-pak](https://gitguy268.github.io/web-pak/). Nothing is uploaded.
+
 <!-- run-steps:start -->
 ## Run it locally, step by step
 
